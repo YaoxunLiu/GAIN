@@ -1,0 +1,53 @@
+WideDeep_Criteo_x4_46m:
+    model: WideDeep
+    dataset_id: Criteo_x4_46m
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    hidden_units: [1000, 1000, 1000, 1000, 1000]
+    hidden_activations: relu
+    net_regularizer: 0
+    embedding_regularizer: 1.e-5
+    batch_norm: False
+    net_dropout: 0.2
+    batch_size: 5000
+    embedding_dim: 16
+    epochs: 100
+    shuffle: True
+    seed: 2022
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+WideDeep_avazu_x4:
+    batch_norm: false
+    batch_size: 10000
+    dataset_id: Avazu_x4
+    debug: false
+    embedding_dim: 16
+    embedding_dropout: 0
+    embedding_regularizer: 1.0e-09
+    epochs: 100
+    every_x_epochs: 1
+    hidden_activations: relu
+    hidden_units: [2000, 2000, 2000, 2000]
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [logloss, AUC]
+    model: WideDeep
+    model_id: WideDeep_base
+    model_root: ./Avazu/WideDeep_avazu_x4_001/
+    monitor: {AUC: 1, logloss: -1}
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    optimizer: adam
+    patience: 0
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2022
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    verbose: 1
+    workers: 3
