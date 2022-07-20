@@ -1,6 +1,9 @@
 # GAIN: A Gated Adaptive feature Interaction Network for Click-Through Rate Prediction
 This is source code of our manuscript submitted to Sensors. Our code is implemented under the framework of [FuxiCTR].(https://github.com/xue-pai/FuxiCTR)
 ## Reproducibility Requirements
++ Ubuntu        20.04.1 LTS
++ Anaconda3     4.9.2
++ Cuda          11.1
 + python        3.6.12
 + pytorch       1.7.0
 + pyyaml        6.0
