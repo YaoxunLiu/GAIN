@@ -1,0 +1,81 @@
+GAIN_Criteo_x4:
+    model: GAIN
+    dataset_id: Criteo_x4
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 1.e-5
+    net_regularizer: 0
+    batch_size: 5000
+    embedding_dim: 16
+    strategy: top-k
+    units: 40
+    units_dict: {6: 4, 7: 26, 8: 6, 9: 4}
+    threshold: 0.0331
+    top_k: 9
+    dnn_hidden_units: [1248, 624, 624]
+    dnn_activations: relu
+    dnn_dropout: 0.2
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    seed: 2022
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+GIN_avazu_x4:
+    model: GIN
+    dataset_id: Avazu_x4
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 1.e-8
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 16
+    strategy: top-k
+    units: 40
+    units_dict: {5: 10, 6: 10, 8: 10, 10: 10}
+    threshold: 0.0472
+    top_k: 9
+    dnn_hidden_units: [768, 384, 384]
+    dnn_activations: relu
+    dnn_dropout: 0
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    patience: 0
+    seed: 2022
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+GIN_Frappe:
+    model: GIN
+    dataset_id: Frappe
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0.05
+    net_regularizer: 0
+    batch_size: 1000
+    embedding_dim: 10
+    strategy: top-k
+    units: 40
+    units_dict: {2: 10, 3: 20, 4: 10}
+    threshold: 0.0331
+    top_k: 9
+    dnn_hidden_units: [200, 100, 100]
+    dnn_activations: relu
+    dnn_dropout: 0
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    seed: 2022
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
